@@ -5,10 +5,11 @@ git clone https://github.com/fraunhoferfokus/deckschrubber.git /tmp/deckschrubbe
 cd /tmp/deckschrubber
 git checkout $DECKSCHRUBBER_TAG
 
-# go needs a place to put the built binaries.
-mkdir -p /tmp/build/bin
+# go needs places to put its build files, and the built binaries.
 mkdir /tmp/go
 export GOPATH=/tmp/go
+
+mkdir -p /tmp/build/bin
 export GOHOME=/tmp/build
 export GOBIN=/tmp/build/bin
 
