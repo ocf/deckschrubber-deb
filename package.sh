@@ -14,9 +14,11 @@ export GOBIN=/tmp/build/bin
 
 go get -v
 
-# Build the .deb and put it in /mnt, which is mounted from build/ in the Makefile.
+# Build the .deb and put it in /mnt, which is mounted from deckschrubber/ in the Makefile.
+cd /mnt/target
 fpm -s dir -t deb \
     -n deckschrubber \
     -v $(echo $DECKSCHRUBBER_TAG | sed 's/[^0-9.]*//g')~ocf1 \
-    -p /mnt \
+    --deb-generate-changes \
+    --deb-dist $DIST_TAG \
     /tmp/build/bin/deckschrubber=/usr/bin/
