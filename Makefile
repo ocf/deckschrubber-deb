@@ -9,7 +9,7 @@ build-image:
 build-package: clean build-image
 	mkdir -p deckschrubber/target
 	docker run -e "DECKSCHRUBBER_TAG=${DECKSCHRUBBER_TAG}" \
-        -e "DIST_TAG=${DIST_TAG}" \
+		-e "DIST_TAG=${DIST_TAG}" \
 		--user $(shell id -u ${USER}):$(shell id -g ${USER}) \
 		-v $(CURDIR)/deckschrubber:/mnt:rw \
 		deckschrubber-build

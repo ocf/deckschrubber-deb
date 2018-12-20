@@ -21,4 +21,5 @@ fpm -s dir -t deb \
     -v $(echo $DECKSCHRUBBER_TAG | sed 's/[^0-9.]*//g')~ocf1 \
     --deb-generate-changes \
     --deb-dist $DIST_TAG \
+    --description "Deckschrubber inspects images of a Docker Registry and removes those older than a given age." \
     /tmp/build/bin/deckschrubber=/usr/bin/
