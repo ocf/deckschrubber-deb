@@ -14,12 +14,13 @@ export GOBIN=/tmp/build/bin
 
 go get -v
 
-# Build the .deb and put it in /mnt, which is mounted from deckschrubber/ in the Makefile.
-cd /mnt/target
+# Build the .deb and put it in /mnt, which is mounted from dist_*/ in the Makefile.
+cd /mnt
 fpm -s dir -t deb \
     -n deckschrubber \
     -v $(echo $DECKSCHRUBBER_TAG | sed 's/[^0-9.]*//g')~ocf1 \
     --deb-generate-changes \
     --deb-dist $DIST_TAG \
     --description "Deckschrubber inspects images of a Docker Registry and removes those older than a given age." \
+    --force \
     /tmp/build/bin/deckschrubber=/usr/bin/
