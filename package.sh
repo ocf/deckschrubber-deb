@@ -1,9 +1,8 @@
 #!/bin/bash
 set -euxo pipefail
 
-git clone https://github.com/fraunhoferfokus/deckschrubber.git /tmp/deckschrubber
+git clone --branch $DECKSCHRUBBER_TAG https://github.com/fraunhoferfokus/deckschrubber.git /tmp/deckschrubber
 cd /tmp/deckschrubber
-git checkout $DECKSCHRUBBER_TAG
 
 # go needs places to put its build files, and the built binaries.
 mkdir /tmp/go
