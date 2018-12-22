@@ -4,14 +4,6 @@ set -euxo pipefail
 git clone --branch $DECKSCHRUBBER_TAG https://github.com/fraunhoferfokus/deckschrubber.git /tmp/deckschrubber
 cd /tmp/deckschrubber
 
-# go needs places to put its build files, and the built binaries.
-mkdir /tmp/go
-export GOPATH=/tmp/go
-
-mkdir -p /tmp/build/bin
-export GOHOME=/tmp/build
-export GOBIN=/tmp/build/bin
-
 go get -v
 
 # Build the .deb and put it in /mnt, which is mounted from dist_*/ in the Makefile.
@@ -24,4 +16,4 @@ fpm -s dir -t deb \
     --description "Deckschrubber inspects images of a Docker Registry and removes those older than a given age." \
     --maintainer "root@ocf.berkeley.edu" \
     --force \
-    /tmp/build/bin/deckschrubber=/usr/bin/
+    $GOBIN/deckschrubber=/usr/bin/
