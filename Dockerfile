@@ -13,6 +13,6 @@ RUN gem install --no-ri --no-rdoc fpm -v 1.10.2
 
 ENV PATH="${PATH}:/usr/lib/go-1.10/bin"
 
-COPY package.sh /tmp
+COPY package.sh /opt
 
-CMD ["/tmp/package.sh"]
+CMD ["/opt/package.sh"]
