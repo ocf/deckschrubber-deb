@@ -14,6 +14,7 @@ fpm -s dir -t deb \
     --deb-generate-changes \
     --deb-dist $DIST_TAG \
     --description "Deckschrubber inspects images of a Docker Registry and removes those older than a given age." \
+    --url "https://github.com/ocf/deckschrubber-deb" \
     --maintainer "root@ocf.berkeley.edu" \
     --force \
     $GOBIN/deckschrubber=/usr/bin/
