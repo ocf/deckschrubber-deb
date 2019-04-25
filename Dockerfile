@@ -9,7 +9,10 @@ RUN apt-get update \
             build-essential \
             golang-1.10
 
-RUN gem install --no-ri --no-rdoc fpm -v 1.10.2
+RUN gem install --no-ri --no-rdoc bundler
+COPY Gemfile /opt
+COPY Gemfile.lock /opt
+RUN bundle install --gemfile=/opt/Gemfile
 
 ENV PATH="${PATH}:/usr/lib/go-1.10/bin"
 # go needs places to put its build files, and the built binaries.
