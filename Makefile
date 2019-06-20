@@ -1,11 +1,11 @@
 DECKSCHRUBBER_TAG := v0.6.0
 
-.PHONY: build-image
-build-image:
-	docker build -t deckschrubber-build .
+.PHONY: build_%
+build_%:
+	docker build --build-arg DIST=$* -t deckschrubber-build .
 
 .PHONY: package_%
-package_%: build-image
+package_%: build_%
 	mkdir -p "dist_$*"
 	docker run -e "DECKSCHRUBBER_TAG=${DECKSCHRUBBER_TAG}" \
 		-e "DIST_TAG=$*" \
