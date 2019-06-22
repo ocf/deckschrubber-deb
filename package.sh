@@ -10,7 +10,7 @@ go get -v
 cd /mnt
 fpm -s dir -t deb \
     -n deckschrubber \
-    -v $(echo $DECKSCHRUBBER_TAG | sed 's/[^0-9.]*//g')~ocf1 \
+    -v $(echo $DECKSCHRUBBER_TAG | sed 's/[^0-9.]*//g')+deb$(lsb_release -rs | cut -d . -f 1)u1~ocf1 \
     --deb-generate-changes \
     --deb-dist $DIST_TAG \
     --description "Deckschrubber inspects images of a Docker Registry and removes those older than a given age." \

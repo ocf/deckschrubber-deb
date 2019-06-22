@@ -4,6 +4,7 @@ FROM docker.ocf.berkeley.edu/theocf/debian:${DIST}
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
             git \
+            lsb-release \
             ruby \
             ruby-dev \
             rubygems \
