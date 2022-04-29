@@ -10,13 +10,13 @@ RUN apt-get update \
             rubygems \
             ruby-bundler \
             build-essential \
-            golang-1.11
+            golang
 
 COPY Gemfile /opt
 COPY Gemfile.lock /opt
 RUN bundle install --gemfile=/opt/Gemfile
 
-ENV PATH="${PATH}:/usr/lib/go-1.11/bin"
+ENV PATH="${PATH}:/usr/lib/go/bin"
 # go needs places to put its build files, and the built binaries.
 RUN mkdir -m 0777 /opt/go
 ENV GOPATH=/opt/go
