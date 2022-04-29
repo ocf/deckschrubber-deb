@@ -14,7 +14,7 @@ RUN apt-get update \
 
 COPY Gemfile /opt
 COPY Gemfile.lock /opt
-RUN bundle update --bundler
+RUN bundle update --bundler --gemfile=/opt/Gemfile
 RUN bundle install --gemfile=/opt/Gemfile
 
 ENV PATH="${PATH}:/usr/lib/go/bin"
