@@ -17,6 +17,7 @@ COPY Gemfile.lock /opt
 RUN bundle update --bundler --gemfile=/opt/Gemfile
 RUN bundle install --gemfile=/opt/Gemfile
 
+ENV GOCACHE=off
 ENV PATH="${PATH}:/usr/lib/go/bin"
 # go needs places to put its build files, and the built binaries.
 RUN mkdir -m 0777 /opt/go
