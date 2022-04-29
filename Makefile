@@ -1,4 +1,4 @@
-DECKSCHRUBBER_TAG := v0.6.0
+DECKSCHRUBBER_TAG := v0.7.0
 
 .PHONY: build_%
 build_%:
